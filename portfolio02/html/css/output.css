@@ -1,0 +1,52 @@
+@charset "UTF-8";
+body.hello {
+  display: block;
+  overflow: visible;
+  background-color: #000;
+  color: red; }
+body.off {
+  background-color: #00f; }
+body::before {
+  content: "은지혜"; }
+body .div01 {
+  background-color: black; }
+body .div01::before {
+  content: "검은색 "; }
+
+body.hello {
+  background-color: pink; }
+
+.clear, body.on {
+  display: block;
+  clear: both; }
+
+.hello-1 {
+  width: 100px;
+  height: 100px;
+  background: gray;
+  border: 1px solid red; }
+
+.hello-2 {
+  width: 100px;
+  height: 100px;
+  background: gray;
+  border: 2px solid red; }
+
+.hello-3 {
+  width: 100px;
+  height: 100px;
+  background: gray;
+  border: 3px solid red; }
+
+.hello-4 {
+  width: 100px;
+  height: 100px;
+  background: gray;
+  border: 4px solid red; }
+
+.hello-2 {
+  background: white;
+  margin-top: 0px;
+  margin-left: 30px; }
+
+/*# sourceMappingURL=output.css.map */

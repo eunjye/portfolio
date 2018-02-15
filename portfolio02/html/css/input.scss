@@ -1,0 +1,69 @@
+@charset "UTF-8";
+
+$selector : "hello";
+$hello_visible : "visible";
+$body_color : #000;
+$content01 : "은지혜";
+$back : "::before";
+$color : "black";
+
+body {
+    &.#{$selector} {
+        display: block;
+        overflow: #{$hello_visible};
+        background-color: $body_color;
+        color:red;
+    }
+    &.on {
+        @extend .clear; // body.on에 .clear에 정의된 속성 적용
+    }
+
+    &.off {
+        background-color: #00f;
+    }
+    &#{$back}{
+        content: $content01;
+    }
+    %bg-if{
+        background-color: #{$color};
+    }
+    .div01{
+        @if ($color == "yellow"){
+            @extend %bg-if;
+            &#{$back}{
+                content: "노란색 "
+            }
+        }@else if ($color == "white"){
+            @extend %bg-if;
+            &#{$back}{
+                content: "하얀색 "
+            }
+        }@else if ($color == "black"){
+            @extend %bg-if;
+            &#{$back}{
+                content: "검은색 "
+            }
+        }
+    }
+}
+%style01{
+    background-color: pink;
+}
+body.hello{@extend %style01;}
+.clear {
+    display: block;
+    clear: both;
+}
+@for $lili from 1 through 4{
+    .hello-#{$lili}{
+    width:100px; height:100px; background:gray; border:$lili+px solid red; 
+    }
+}
+@mixin hello($val01 : "yellow", $val02 : 0, $val03 : -20){
+    background:#{$val01};
+    margin-top:$val02 + px;
+    margin-left:$val03 + px;
+};
+.hello-2{
+    @include hello($val01:"white", $val03:30);
+};
