@@ -110,6 +110,22 @@ body {
     font-size: 2rem;
     line-height: 100vh; }
 
+.description {
+  position: relative;
+  width: 500px;
+  margin: 0 auto;
+  margin-top: calc(-50vh + 2.4rem);
+  font-size: 1.3rem;
+  letter-spacing: 0.1rem;
+  line-height: 1rem; }
+  .description::before {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 1.5rem;
+    width: 60px;
+    border: 1px solid white;
+    content: ""; }
+
 .square-wrap {
   position: absolute;
   top: 0;
@@ -189,9 +205,14 @@ body {
       border: 1px solid rgba(255, 255, 255, 0.8);
       z-index: -2; }
       .square-wrap .square span {
-        display: none; } }
+        display: none; }
+
+  .description {
+    width: 100%;
+    margin-top: calc(-25vh + 2.4rem); } }
 @media screen and (max-width: 414px) {
   .square-wrap {
     padding: 10%; } }
+/* 20180218 */
 
 /*# sourceMappingURL=main.css.map */

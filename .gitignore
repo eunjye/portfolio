@@ -1,4 +1,4 @@
-# npm 디버그 기록
+﻿# npm 디버그 기록
 npm-debug.log*
 
 # 프로젝트 의존성
@@ -18,3 +18,6 @@ node_modules
 _notes
 
 # 2018-02-15 최종 수정
+
+#SASS 캐시
+.sass-cache
