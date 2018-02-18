@@ -1,0 +1,104 @@
+@charset "UTF-8";
+
+%horizontal{position:absolute; width:0; height:5px; background:black;}
+%vertical{position:absolute; width:5px; height:0; background:black;}
+%virtual-full{
+    position:absolute; display:block; content:""; top:0; left:0; width:100%; height:100%;
+}
+$main-color : rgba(243,151,70,0.3); /*rgba(243,151,70,0.5)*/
+$ani-sec : 0.2s;
+/* NHN Web Standard 1Team JJS 090707, JJJ 090815 */
+/* Common */
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select{margin:0;padding:0}
+body,input,textarea,select,button,table{font-family:'돋움',Dotum, Helvetica,sansserif;font-size:12px}
+img,fieldset{border:0}
+ul,ol{list-style:none}
+em,address{font-style:normal}
+a{text-decoration:none}
+a:hover,a:active,a:focus{text-decoration:none}
+.blind{visibility:hidden;overflow:hidden;position:absolute;top:0;left:0;width:1px;height:
+1px;font-size:0;line-height:0}
+button{border:none;cursor:pointer}
+div,article,section{box-sizing:border-box;}
+
+
+html{
+    font-size:16px;
+}
+body{overflow: hidden; font-family: 'Roboto', sans-serif;
+    font-weight: 300; letter-spacing: 1rem;}
+.link-wrap{
+    position:relative; width:50%; height:100vh; float:left; text-align:center; overflow: hidden;
+    
+    &.new-pf{
+        .visual{
+            background-image:url('new-pf.jpg'); 
+        }
+        &::after{
+            z-index:2; @extend %virtual-full; background:$main-color;
+        }
+    }
+    &.old-pf{
+        .visual{
+            background-image:url('old-pf.jpg'); 
+        }
+        &::after{
+            z-index:2; @extend %virtual-full; background:$main-color;
+        }
+    }
+    .visual{
+        z-index:-1; position:absolute; width:110%; height:110%; top:-5%; left:-5%; background-size:cover; background-position:center; /*filter:blur(5px)*/
+    }
+    a{
+        z-index:99; position:relative; display:block; width:100%; height:100%; color:white;
+        font-size:2rem; line-height:100vh;
+    }
+}
+
+.square-wrap{
+    position:absolute; top:0; left:0; width:100%; height:100%; padding:10%;
+    .square{
+        position:relative; display:inline-block; width:100%; height:100%;
+        span{display:inline-block; background:white; opacity: 0;}
+    }
+}
+.line-top{@extend %horizontal; top:0; left:0; }
+.line-right{@extend %vertical; top:0; right:0;}
+.line-bottom{@extend %horizontal; bottom:0; right:0;}
+.line-left{@extend %vertical; bottom:0; left:0;}
+
+.hover-square{
+    .line-top{width:100%; transition: width $ani-sec ease-out;}
+    .line-right{height:100%; transition: height $ani-sec ease-out $ani-sec;}
+    .line-bottom{width:100%; transition: width $ani-sec ease-out 2 * $ani-sec;}
+    .line-left{height:100%; transition: height #{$ani-sec} ease-out 3 * $ani-sec;}
+}
+.leave-square{
+    .line-top{ width:0; transition: width $ani-sec ease-out 3 * $ani-sec;}
+    .line-right{ height:0; transition: height $ani-sec ease-out 2 * $ani-sec;}
+    .line-bottom{ width:0; transition: width $ani-sec ease-out 1 * $ani-sec;}
+    .line-left{height:0; transition: height $ani-sec ease-out;}
+}
+
+@media screen and (max-width:1024px){
+    html{font-size:12px;}
+    .link-wrap{
+        width:100%; height:50vh; float:none;
+        a{
+            line-height:50vh;
+            letter-spacing:0.5rem;
+        }
+        span, .line{opacity:1 !important;}
+    }
+    .square-wrap{
+        padding:6%;
+        .square{border:1px solid rgba(255,255,255,0.8); z-index: -2;
+         span{display:none;}
+        }
+    }
+}
+@media screen and (max-width:414px){
+    .square-wrap{
+        padding:10%;
+    }
+}
