@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 %full-page{position:absolute; width: 100%; height: 100vh; overflow: hidden;}
 %max-width{width:100%; max-width:1280px; margin:0 auto;}
 %clear{display:block; clear:both; content:""}
@@ -13,15 +15,32 @@
 
 $hl-color : #8366ff;
 
+/* 드래그 시 색상 */
+::selection {
+    background:$hl-color;
+    color: #FFF;
+    text-shadow: none;
+}
+::-moz-selection {
+    background:$hl-color;
+    color: #FFF;
+    text-shadow: none;
+}
+::-webkit-selection {
+    background:$hl-color;
+    color: #FFF;
+    text-shadow: none;
+}
+
 div, header{box-sizing:border-box}
 body{font-size:16px;}
 .header{z-index:100; position:absolute; display:table; @extend %max-width; height:128px; left:calc(50% - 640px); padding:0 1.17%; border-bottom:1px solid rgba(255,255,255,0.5);
-    h1 a{display:block; width:97px; height:69px; background:url('../img/logo.svg') no-repeat center;}
-    &.fixed-header{
-        position:fixed; height:88px;
-        animation:header-ani 0.2s;
     
+    &.fixed-header{
+        position:fixed; height:0px; top:-60px;
     }
+    h1 a{display:block; width:97px; height:69px; background:url('../img/logo.svg') no-repeat center;}
+    
     
     &>*{display:table-cell; vertical-align:middle}
     .logo{width:96.89px;height:auto;}
@@ -43,20 +62,13 @@ body{font-size:16px;}
         animation: gnb-black 0.5s both;
     }
 }
+
 .header-white{animation:header-white 0.5s both !important;}
 .header-black{animation:header-black 0.5s both !important;
     h1 a{animation:fade-in 0.5s both; background:url('../img/logo-b.svg') no-repeat center;}
 }
 @keyframes fade-in{
     from{opacity:0}to{opacity:1}
-}
-@keyframes header-ani{
-    0%{
-        top:-88px;
-    }
-    100%{
-        top:0;
-    }
 }
 @keyframes header-white{
     from{
@@ -113,9 +125,10 @@ body{font-size:16px;}
             @extend %en-medium; font-size:1.125rem; letter-spacing:0.112rem; color:white;
         }
     }
-    .current-page{left:-80px}
 }
+
 .title h2{@extend %en-black;font-size:4.71rem;}
+
 
 .aboutme-wrap{
     z-index:4;
@@ -143,7 +156,7 @@ body{font-size:16px;}
     }
     .article-wrap{
         width:calc(50% + 625px);
-        background:#fafafa;
+        background:#efefef;
         margin-top:104px;
         padding:43px 0 154px 0;
         article{float:right;
@@ -156,7 +169,6 @@ body{font-size:16px;}
         }
         &::after{@extend %clear;}
     }
-    .current-page{left:calc(50% - 670px);}
 }
 /*++++ end of .aboutme-wrap ++++*/
 .skills-wrap{
@@ -193,7 +205,7 @@ body{font-size:16px;}
     }
     
 }
-.current-page{position:absolute; text-align:center; width:auto; top:50vh; transform: rotate(-90deg); @extend %en-medium; letter-spacing: 0.08rem;}
+.current-page{position:fixed; left:calc(50% - 770px);  text-align:center; width:300px; top:50vh; transform: rotate(-90deg); @extend %en-medium; letter-spacing: 0.08rem;}
 @media screen and (max-width:1280px){
     .header{left:0}
     .aboutme-wrap{
@@ -205,9 +217,8 @@ body{font-size:16px;}
                 }
             }
         }
-        .current-page{left:-30px}
     }
-
+    .current-page{left:-130px}
     .skills-wrap{
         padding:173px 0 276px 0;
         .visual{
@@ -220,6 +231,4 @@ body{font-size:16px;}
     .aboutme-wrap article:first-of-type{
         margin-right:40% !important;
     }
-    
-    
 }

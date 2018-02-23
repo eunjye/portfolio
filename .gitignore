@@ -21,3 +21,6 @@ _notes
 
 #SASS 캐시
 .sass-cache
+
+# map파일
+.map
