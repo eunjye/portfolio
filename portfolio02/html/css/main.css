@@ -40,6 +40,22 @@
   font-family: 'Roboto', sans-serif;
   font-weight: 900; }
 
+/* 드래그 시 색상 */
+::selection {
+  background: #8366ff;
+  color: #FFF;
+  text-shadow: none; }
+
+::-moz-selection {
+  background: #8366ff;
+  color: #FFF;
+  text-shadow: none; }
+
+::-webkit-selection {
+  background: #8366ff;
+  color: #FFF;
+  text-shadow: none; }
+
 div, header {
   box-sizing: border-box; }
 
@@ -55,15 +71,15 @@ body {
   padding: 0 1.17%;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   /* width:7.57%; height:auto */ }
+  .header.fixed-header {
+    position: fixed;
+    height: 0px;
+    top: -60px; }
   .header h1 a {
     display: block;
     width: 97px;
     height: 69px;
     background: url("../img/logo.svg") no-repeat center; }
-  .header.fixed-header {
-    position: fixed;
-    height: 88px;
-    animation: header-ani 0.2s; }
   .header > * {
     display: table-cell;
     vertical-align: middle; }
@@ -109,11 +125,6 @@ body {
     opacity: 0; }
   to {
     opacity: 1; } }
-@keyframes header-ani {
-  0% {
-    top: -88px; }
-  100% {
-    top: 0; } }
 @keyframes header-white {
   from {
     border-bottom: 1px solid rgba(0, 0, 0, 0.5); }
@@ -186,8 +197,6 @@ body {
       font-size: 1.125rem;
       letter-spacing: 0.112rem;
       color: white; }
-  .intro-wrap .current-page {
-    left: -80px; }
 
 .title h2 {
   font-size: 4.71rem; }
@@ -235,7 +244,7 @@ body {
     padding: 38px 50% 0 0; }
   .aboutme-wrap .article-wrap {
     width: calc(50% + 625px);
-    background: #fafafa;
+    background: #efefef;
     margin-top: 104px;
     padding: 43px 0 154px 0; }
     .aboutme-wrap .article-wrap article {
@@ -252,8 +261,6 @@ body {
         margin-bottom: 25px; }
       .aboutme-wrap .article-wrap article:first-of-type {
         margin: 0 621px 0 7.01%; }
-  .aboutme-wrap .current-page {
-    left: calc(50% - 670px); }
 
 /*++++ end of .aboutme-wrap ++++*/
 .skills-wrap {
@@ -296,7 +303,7 @@ body {
       background-size: auto 143px;
       background-repeat: no-repeat;
       background-image: url("../img/skills.svg");
-      /* 262px 媛꾧꺽 */ }
+      /* 262px 간격 */ }
       .skills-wrap .skill-list .skill.html-wrap {
         background-position: 40px 20px; }
       .skills-wrap .skill-list .skill.css-wrap {
@@ -316,9 +323,10 @@ body {
         font-size: 1.125rem; }
 
 .current-page {
-  position: absolute;
+  position: fixed;
+  left: calc(50% - 770px);
   text-align: center;
-  width: auto;
+  width: 300px;
   top: 50vh;
   transform: rotate(-90deg);
   letter-spacing: 0.08rem; }
@@ -331,8 +339,9 @@ body {
     width: calc(100% - 15px); }
     .aboutme-wrap .article-wrap article:first-of-type {
       margin: 0 48.9% 0 7.01%; }
-  .aboutme-wrap .current-page {
-    left: -30px; }
+
+  .current-page {
+    left: -130px; }
 
   .skills-wrap {
     padding: 173px 0 276px 0; }

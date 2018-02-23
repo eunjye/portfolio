@@ -30,7 +30,7 @@
                     디자이너의 의도를<br>확실히 담아낸<br><span>프론트엔드</span>
                 </div>
                 <div class="sub-title02">
-                    각 분야를 이해하고<br>소통하는<br><span>개발자</span>
+                    각 분야를 이해하고<br>소통하는<br><span>퍼블리셔</span>
                 </div>
             </aside>
             <div class="intro-title">
@@ -39,7 +39,7 @@
                 <button class="btn-more btn-intro">MORE</button>
                 </div>
             </div>
-            <div class="current-page">FRONT-END DEVELOPER</div>
+            <div class="current-page">PUBLISHER</div>
         </div>
         <!-- end of Intro-wrap -->
         <section class="aboutme-wrap">
@@ -48,7 +48,7 @@
             </div>
             <div class="title">
                 <h2 class="jihye">JIHYE EUN</h2>
-                <div class="description">다양한 사회경험을 통해 프론트엔드 개발자의 필수조건인<br><span>소통</span>과 <span>조화</span>를 갖추었습니다.</div>
+                <div class="description">다양한 사회경험을 통해 퍼블리셔의 필수조건인<br><span>소통</span>과 <span>조화</span>를 갖추었습니다.</div>
             </div>
             <div class="article-wrap">
                 <article>
@@ -105,6 +105,11 @@
 
         <div id="count">0</div><button onclick="startCount(57,'html')">카운트시작</button>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>     <!-- jQuery CDN -->
+        <script
+        src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        crossorigin="anonymous"></script>   <!-- jQuery ui CDN -->
+
         <!-- <script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"
         integrity="sha256-H28SdxWrZ387Ldn0qogCzFiUDDxfPiNIyJX7BECQkDE="
         crossorigin="anonymous"></script>   <!-- Color animate jQuery CDN -->
@@ -148,11 +153,12 @@
             })
             $(document).ready(function(){
                 $(this).scroll(function(){
-                    let scrollY = $(document).scrollTop();
+                    var scrollY = $(document).scrollTop();
                     if( scrollY >= 128){
-                        $(".header").addClass('fixed-header');//header:88px;
+                        //$(".header").addClass('fixed-header');//header:60px;
+                        $(".header").addClass("fixed-header").animate({top:'0'},200);
                     }else{
-                        $(".header").removeClass('fixed-header');
+                        $(".header").removeClass("fixed-header");
                     }
                     if( scrollY >= $(".aboutme-wrap").offset().top){
                         $(".gnb-link").addClass("gnb-black").removeClass("gnb-white");
@@ -172,6 +178,7 @@
                     }
                 })
             })
+            
         </script>
     </body>
 </html>
